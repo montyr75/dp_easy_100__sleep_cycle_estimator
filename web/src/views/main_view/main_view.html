@@ -5,12 +5,66 @@
     <link rel="stylesheet" href="../../../resources/css/app.css">
 
     <style>
+      #main_pnl {
+        width: 234px;
+      }
+
+      #time_inp_grp {
+        width: 200px;
+      }
+
+      #report_tbl {
+        width: 203px;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+
+      .sleep-col {
+        width: 50px;
+      }
+
+      .bedtime-col {
+        width: 75px;
+      }
+
+      .panel-heading {
+        text-align: center;
+      }
     </style>
 
-    <h1>Polymer_Template</h1>
+    <div id="main_pnl" class="panel panel-default">
+      <div class="panel-heading">
+        <strong>Sleep Cycle Calculator</strong>
+      </div>
 
-    <div class="box-container">
+      <div class="panel-body">
+        <form on-submit="{{submit}}">
+          <div id="time_inp_grp" class="input-group input-group-lg">
+            <span class="input-group-addon input-lg">
+              <img id="alarm_img" width="22" height="22" src="../../../resources/images/alarm_clock.svg">
+            </span>
+            <input id="time_inp" type="time" class="form-control input-lg" value="07:00:00" on-input="{{newAlarmTime}}">
+          </div>
+        </form>
 
+        <table id="report_tbl" class="table table-bordered">
+          <thead>
+            <th>Sleep</th>
+            <th>Bedtime</th>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="sleep-col">9 hrs.</td>
+              <td class="bedtime-col">{{bedtime1}}</td>
+            </tr>
+            <tr>
+              <td class="sleep-col">7.5 hrs.</td>
+              <td class="bedtime-col">{{bedtime2}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </template>
 
