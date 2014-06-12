@@ -17,9 +17,9 @@ class MainView extends PolymerElement {
 
   MainView.created() : super.created();
 
-  @override void enteredView() {
-    super.enteredView();
-    print("$CLASS_NAME::enteredView()");
+  @override void attached() {
+    super.attached();
+    print("$CLASS_NAME::attached()");
 
     newAlarmTime(null, null, $['time_inp']);
   }
