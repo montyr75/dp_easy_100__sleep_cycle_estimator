@@ -1,0 +1,91 @@
+<!-- Polymer Element HTML import links go here (above <polymer-element> tag) -->
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/core_elements/core_header_panel.html">
+<link rel="import" href="packages/core_elements/core_toolbar.html">
+
+<polymer-element name="app-view">
+  <template>
+    <link rel="stylesheet" href="../../../resources/css/app.css">
+
+    <style>
+      core-header-panel {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      core-toolbar {
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+
+      #main_pnl {
+        width: 234px;
+        margin: 10px auto 0 auto;
+      }
+
+      #time_inp_grp {
+        width: 200px;
+      }
+
+      #report_tbl {
+        width: 203px;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+
+      .sleep-col {
+        width: 50px;
+      }
+
+      .bedtime-col {
+        width: 75px;
+      }
+
+      .panel-heading {
+        text-align: center;
+      }
+    </style>
+
+    <core-header-panel>
+      <core-toolbar>
+        <span flex>Sleep Cycle Calculator</span>
+      </core-toolbar>
+
+      <div id="main_pnl">
+        <div class="panel-body">
+          <form on-submit="{{submit}}">
+            <div id="time_inp_grp" class="input-group input-group-lg">
+            <span class="input-group-addon input-lg">
+              <img id="alarm_img" width="22" height="22" src="../../../resources/images/alarm_clock.svg">
+            </span>
+              <input id="time_inp" type="time" class="form-control input-lg" value="07:00:00" on-input="{{newAlarmTime}}">
+            </div>
+          </form>
+
+          <table id="report_tbl" class="table table-bordered">
+            <thead>
+            <tr>
+              <th>Sleep</th>
+              <th>Bedtime</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+              <td class="sleep-col">9 hrs.</td>
+              <td class="bedtime-col">{{bedtime1}}</td>
+            </tr>
+            <tr>
+              <td class="sleep-col">7.5 hrs.</td>
+              <td class="bedtime-col">{{bedtime2}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </core-header-panel>
+  </template>
+
+  <script type="application/dart" src="app_view.dart"></script>
+</polymer-element>

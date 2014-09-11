@@ -1,13 +1,13 @@
-library main_view;
+library app_view;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 import 'package:intl/intl.dart';
 
-@CustomTag('main-view')
-class MainView extends PolymerElement {
+@CustomTag('app-view')
+class AppView extends PolymerElement {
 
-  static const CLASS_NAME = "MainView";
+  static const CLASS_NAME = "AppView";
 
   // UI output
   @observable String bedtime1;
@@ -15,7 +15,7 @@ class MainView extends PolymerElement {
 
   DateFormat timeFormatter = new DateFormat("h:mm a");
 
-  MainView.created() : super.created();
+  AppView.created() : super.created();
 
   @override void attached() {
     super.attached();
@@ -25,7 +25,12 @@ class MainView extends PolymerElement {
   }
 
   void newAlarmTime(Event event, var detail, InputElement target) {
-    print("$CLASS_NAME::newAlarmTime()");
+    print("$CLASS_NAME::newAlarmTime(): ${target.value}");
+
+    if (target.value.isEmpty) {
+      bedtime1 = bedtime2 = "";
+      return;
+    }
 
     DateTime alarmTime = DateTime.parse("2014-01-01 ${target.value}");
     List<String> bedtimes = calculateBedtimes(alarmTime).map((DateTime bedtime) => timeFormatter.format(bedtime)).toList(growable: false);

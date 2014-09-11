@@ -1,8 +1,9 @@
 name: sleep_cycle_estimator
 description: A Polymer Dart application.
 dependencies:
+  core_elements: any
   intl: any
-  polymer: ">=0.11.0-dev.4"
+  polymer: any
 transformers:
 - polymer:
     entry_points: web/index.html
