@@ -5,7 +5,7 @@
 
 <polymer-element name="app-view">
   <template>
-    <link rel="stylesheet" href="../../../resources/css/app.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
 
     <style>
       :host {
@@ -39,6 +39,21 @@
 
       .bedtime-col {
         width: 75px;
+      }
+
+      .user-select-none {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      
+      img {
+        -moz-user-drag: -moz-none;
+        -webkit-user-drag: none;
+        user-drag: none;
       }
     </style>
 
