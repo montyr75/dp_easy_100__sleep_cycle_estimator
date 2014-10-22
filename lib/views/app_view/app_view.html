@@ -1,7 +1,7 @@
 <!-- Polymer Element HTML import links go here (above <polymer-element> tag) -->
-<link rel="import" href="packages/polymer/polymer.html">
-<link rel="import" href="packages/core_elements/core_header_panel.html">
-<link rel="import" href="packages/core_elements/core_toolbar.html">
+<link rel="import" href="../../../../packages/polymer/polymer.html">
+<link rel="import" href="../../../../packages/core_elements/core_header_panel.html">
+<link rel="import" href="../../../../packages/core_elements/core_toolbar.html">
 
 <polymer-element name="app-view">
   <template>
@@ -67,7 +67,7 @@
           <form on-submit="{{submit}}">
             <div id="time_inp_grp" class="input-group input-group-lg">
             <span class="input-group-addon input-lg">
-              <img id="alarm_img" width="22" height="22" src="../../../resources/images/alarm_clock.svg">
+              <img id="alarm_img" width="22" height="22" src="../../../../resources/images/alarm_clock.svg">
             </span>
               <input id="time_inp" type="time" class="form-control input-lg" value="07:00:00" on-input="{{newAlarmTime}}">
             </div>
