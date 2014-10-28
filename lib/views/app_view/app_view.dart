@@ -2,12 +2,14 @@ library app_view;
 
 import 'dart:html';
 import 'package:polymer/polymer.dart';
+import '../../model/global.dart';
 import 'package:intl/intl.dart';
 
 @CustomTag('app-view')
 class AppView extends PolymerElement {
 
-  static const CLASS_NAME = "AppView";
+  // initialize system log
+  bool _logInitialized = initLog();
 
   // UI output
   @observable String bedtime1;
@@ -19,13 +21,13 @@ class AppView extends PolymerElement {
 
   @override void attached() {
     super.attached();
-    print("$CLASS_NAME::attached()");
+    log.info("$runtimeType::attached()");
 
     newAlarmTime(null, null, $['time_inp']);
   }
 
   void newAlarmTime(Event event, var detail, InputElement target) {
-    print("$CLASS_NAME::newAlarmTime(): ${target.value}");
+    log.info("$runtimeType::newAlarmTime(): ${target.value}");
 
     if (target.value.isEmpty) {
       bedtime1 = bedtime2 = "";
