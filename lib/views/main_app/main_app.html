@@ -24,7 +24,6 @@
 
   <div class="layout vertical center content">
     <paper-material elevation="1" class="card layout vertical">
-      <!--<paper-input #time id="time-inp" type="time" [value]="alarmTimeInit" (input)="newAlarmTime(time.value)" label="Wake up at"></paper-input>-->
       <paper-input #time id="time-inp" type="time" [value]="inputValue" (input)="inputValue = time.value" label="Wake up at"></paper-input>
 
       <table id="report_tbl" class="table table-hover table-mc-blue">
