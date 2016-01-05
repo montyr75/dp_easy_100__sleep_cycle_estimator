@@ -18,13 +18,16 @@ enum AppMode {
   Develop
 }
 
+var APP_NAME = new OpaqueToken("APP_NAME");
+
 main() async {
   await initPolymer();
 
   bootstrap(MainApp, [
+    provide(APP_NAME, useValue: 'sleep_cycle_estimator'),
     provide(AppMode, useValue: initAppMode()),
     provide(Level, useFactory: initLogLevel, deps: [AppMode]),
-    provide(Logger, useFactory: (level) => initLog(level), deps: [Level])
+    provide(Logger, useFactory: (APP_NAME, level) => initLog(APP_NAME, level), deps: [APP_NAME, Level])
   ]);
 }
 
