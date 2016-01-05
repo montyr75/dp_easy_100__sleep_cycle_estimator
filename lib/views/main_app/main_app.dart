@@ -15,7 +15,7 @@ import '../../model/global.dart';
 
 @Component(selector: 'main-app', encapsulation: ViewEncapsulation.Native,
     templateUrl: 'main_app.html', styleUrls: const ["md_table.css"],
-    directives: const [ModelDirective])
+    directives: const [PaperInputModelDirective])
 class MainApp {
 
   String _inputValue = "07:00:00";

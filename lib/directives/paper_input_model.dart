@@ -7,7 +7,7 @@ import 'package:angular2/angular2.dart';
       '(input)': 'modelChange.add(\$event.currentTarget.value)'
     }
 )
-class ModelDirective {
+class PaperInputModelDirective {
   @Input() dynamic model;
   @Output() EventEmitter modelChange = new EventEmitter();
 }
