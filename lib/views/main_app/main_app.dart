@@ -1,7 +1,5 @@
 library sleep_cycle_estimator.lib.views.main_app;
 
-import 'dart:html';
-
 import 'package:angular2/angular2.dart';
 
 import 'package:polymer_elements/iron_flex_layout/classes/iron_flex_layout.dart';
@@ -40,19 +38,10 @@ class MainApp {
     }
 
     DateTime alarmTime = DateTime.parse("2015-01-01 ${value}");
-    List<String> bedtimes = _calculateBedtimes(alarmTime).map((DateTime bedtime) => timeFormatter.format(bedtime)).toList(growable: false);
+//    List<String> bedtimes = _calculateBedtimes(alarmTime).map((DateTime bedtime) => timeFormatter.format(bedtime)).toList(growable: false);
 
-    bedtime1 = bedtimes[0];
-    bedtime2 = bedtimes[1];
-  }
-
-  List<DateTime> _calculateBedtimes(DateTime alarmTime) {
-    List<DateTime> bedtimes = new List<DateTime>(2);
-
-    bedtimes[0] = alarmTime.subtract(new Duration(hours: 9, minutes: 15));
-    bedtimes[1] = alarmTime.subtract(new Duration(hours: 7, minutes: 45));
-
-    return bedtimes;
+    bedtime1 = timeFormatter.format(alarmTime.subtract(new Duration(hours: 9, minutes: 15)));
+    bedtime2 = timeFormatter.format(alarmTime.subtract(new Duration(hours: 7, minutes: 45)));
   }
 
   String get inputValue => _inputValue;
