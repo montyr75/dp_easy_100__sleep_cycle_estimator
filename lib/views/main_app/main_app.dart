@@ -10,12 +10,12 @@ import 'package:polymer_elements/paper_toolbar.dart';
 
 import 'package:intl/intl.dart';
 
-import '../../directives/paper_input_model.dart';
+import '../../directives/two_way_value.dart';
 import '../../model/global.dart';
 
 @Component(selector: 'main-app', encapsulation: ViewEncapsulation.Native,
     templateUrl: 'main_app.html', styleUrls: const ["md_table.css"],
-    directives: const [PaperInputModelDirective])
+    directives: const [TwoWayValueDirective])
 class MainApp {
 
   String _inputValue = "07:00:00";
@@ -34,22 +34,21 @@ class MainApp {
   void _newAlarmTime(String value) {
     log.info("$runtimeType::newAlarmTime(): ${value}");
 
-    if (value.isEmpty) {
+    DateTime alarmTime;
+
+    try {
+      alarmTime = DateTime.parse("2015-01-01 ${value}");
+    }
+    catch (e) {
       bedtime1 = bedtime2 = "";
       return;
     }
-
-    DateTime alarmTime = DateTime.parse("2015-01-01 ${value}");
-//    List<String> bedtimes = _calculateBedtimes(alarmTime).map((DateTime bedtime) => timeFormatter.format(bedtime)).toList(growable: false);
 
     bedtime1 = timeFormatter.format(alarmTime.subtract(new Duration(hours: 9, minutes: 15)));
     bedtime2 = timeFormatter.format(alarmTime.subtract(new Duration(hours: 7, minutes: 45)));
   }
 
   String get inputValue => _inputValue;
-
-  set inputValue(String inputValue) {
-    _newAlarmTime(inputValue);
-  }
+  void set inputValue(String inputValue) => _newAlarmTime(inputValue);
 }
 
