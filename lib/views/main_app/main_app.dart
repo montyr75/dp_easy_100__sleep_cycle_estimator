@@ -8,15 +8,19 @@ import 'package:polymer_elements/paper_input.dart';
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
 
+import 'package:logging/logging.dart';
 import 'package:intl/intl.dart';
 
 import '../../directives/two_way_value.dart';
-import '../../model/global.dart';
 
-@Component(selector: 'main-app', encapsulation: ViewEncapsulation.Native,
-    templateUrl: 'main_app.html', styleUrls: const ["md_table.css"],
-    directives: const [TwoWayValueDirective])
+@Component(selector: 'main-app',
+    encapsulation: ViewEncapsulation.Native,
+    templateUrl: 'main_app.html',
+    styleUrls: const ["md_table.css"],
+    directives: const [TwoWayValueDirective]
+)
 class MainApp {
+  final Logger log;
 
   String _inputValue = "07:00:00";
 
@@ -25,7 +29,7 @@ class MainApp {
 
   DateFormat timeFormatter = new DateFormat("h:mm a");
 
-  MainApp() {
+  MainApp(Logger this.log) {
     log.info("$runtimeType()");
 
     _newAlarmTime(inputValue);
@@ -51,4 +55,3 @@ class MainApp {
   String get inputValue => _inputValue;
   void set inputValue(String inputValue) => _newAlarmTime(inputValue);
 }
-
