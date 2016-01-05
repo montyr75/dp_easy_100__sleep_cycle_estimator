@@ -9,8 +9,10 @@ import 'package:sleep_cycle_estimator/model/global.dart';
 import 'package:sleep_cycle_estimator/views/main_app/main_app.dart';
 
 main() async {
-  initLog();
   await initPolymer();
 
-  bootstrap(MainApp, [provide(Logger, useValue: initLog())]);
+  bootstrap(MainApp, [
+    provide(Level, useValue: Level.ALL),
+    provide(Logger, useFactory: (level) => initLog(level), deps: [Level])
+  ]);
 }
