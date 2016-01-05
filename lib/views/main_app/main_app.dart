@@ -9,15 +9,18 @@ import 'package:polymer_elements/paper_material.dart';
 import 'package:polymer_elements/paper_input.dart';
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
-
 import 'package:intl/intl.dart';
 
+import 'package:sleep_cycle_estimator/directive/paper_input_model.dart';
 import '../../model/global.dart';
 
-@Component(selector: 'main-app', encapsulation: ViewEncapsulation.Native,
-    templateUrl: 'main_app.html', styleUrls: const ["md_table.css"])
+@Component(
+    selector: 'main-app',
+    encapsulation: ViewEncapsulation.Native,
+    templateUrl: 'main_app.html',
+    directives: const [ModelDirective],
+    styleUrls: const ["md_table.css"])
 class MainApp {
-
   String _inputValue = "07:00:00";
 
   String bedtime1;
@@ -40,7 +43,9 @@ class MainApp {
     }
 
     DateTime alarmTime = DateTime.parse("2015-01-01 ${value}");
-    List<String> bedtimes = _calculateBedtimes(alarmTime).map((DateTime bedtime) => timeFormatter.format(bedtime)).toList(growable: false);
+    List<String> bedtimes = _calculateBedtimes(alarmTime)
+        .map((DateTime bedtime) => timeFormatter.format(bedtime))
+        .toList(growable: false);
 
     bedtime1 = bedtimes[0];
     bedtime2 = bedtimes[1];
