@@ -7,7 +7,7 @@ import 'package:polymer_elements/paper_material.dart';
 import 'package:polymer_elements/paper_input.dart';
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
-
+import 'package:logging/logging.dart';
 import 'package:intl/intl.dart';
 
 import '../../directives/two_way_value.dart';
@@ -25,7 +25,9 @@ class MainApp {
 
   DateFormat timeFormatter = new DateFormat("h:mm a");
 
-  MainApp() {
+  final Logger log;
+
+  MainApp(this.log) {
     log.info("$runtimeType()");
 
     _newAlarmTime(inputValue);
