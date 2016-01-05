@@ -24,6 +24,6 @@ main() async {
   bootstrap(MainApp, [
     provide(AppNameToken, useValue: APP_NAME),
     provide(AppMode, useValue: appMode),
-    provide(Logger, useFactory: (APP_NAME, AppMode) => initLog(APP_NAME, AppMode), deps: [AppNameToken, AppMode])
+    provide(Logger, useFactory: (AppNameToken, AppMode) => initLog(AppNameToken, AppMode), deps: [AppNameToken, AppMode])
   ]);
 }
