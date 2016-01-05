@@ -1,0 +1,51 @@
+<style>
+  #report_tbl {
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    width: 250px;
+  }
+</style>
+
+<paper-header-panel class="flex">
+  <paper-toolbar class="layout horizontal center center-justified">
+    <h2>Sleep Cycle Calculator</h2>
+  </paper-toolbar>
+
+  <div class="layout vertical center content">
+    <paper-material elevation="1" class="card layout vertical">
+      <!--<paper-input #time id="time-inp" type="time" [value]="alarmTimeInit" (input)="newAlarmTime(time.value)" label="Wake up at"></paper-input>-->
+      <paper-input #time id="time-inp" type="time" [value]="inputValue" (input)="inputValue = time.value" label="Wake up at"></paper-input>
+
+      <table id="report_tbl" class="table table-hover table-mc-blue">
+        <thead>
+          <tr>
+            <th>Sleep</th>
+            <th>Bedtime</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>9 hrs.</td>
+            <td>{{bedtime1}}</td>
+          </tr>
+          <tr>
+            <td>7.5 hrs.</td>
+            <td>{{bedtime2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </paper-material>
+  </div>
+</paper-header-panel>
