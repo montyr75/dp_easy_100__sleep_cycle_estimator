@@ -13,15 +13,17 @@ import 'package:sleep_cycle_estimator/services/logger.dart';
 
 import 'package:logging/logging.dart';
 
-OpaqueToken APP_NAME = new OpaqueToken("APP_NAME");
+const String APP_NAME = "sleep_cycle_estimator";
+
+OpaqueToken AppNameToken = new OpaqueToken("AppNameToken");
 
 main() async {
   await initPolymer();
 
   bootstrap(MainApp, [
-    provide(APP_NAME, useValue: 'sleep_cycle_estimator'),
+    provide(AppNameToken, useValue: APP_NAME),
     provide(AppMode, useValue: initAppMode()),
-    provide(Logger, useFactory: (APP_NAME, AppMode) => initLog(APP_NAME, AppMode), deps: [APP_NAME, AppMode])
+    provide(Logger, useFactory: (APP_NAME, AppMode) => initLog(APP_NAME, AppMode), deps: [AppNameToken, AppMode])
   ]);
 }
 
