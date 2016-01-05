@@ -15,6 +15,7 @@ import 'package:logging/logging.dart';
 
 const String APP_NAME = "sleep_cycle_estimator";
 
+AppMode appMode = window.location.host.contains('localhost') ? AppMode.Develop : AppMode.Production;
 OpaqueToken AppNameToken = new OpaqueToken("AppNameToken");
 
 main() async {
@@ -22,10 +23,7 @@ main() async {
 
   bootstrap(MainApp, [
     provide(AppNameToken, useValue: APP_NAME),
-    provide(AppMode, useValue: initAppMode()),
+    provide(AppMode, useValue: appMode),
     provide(Logger, useFactory: (APP_NAME, AppMode) => initLog(APP_NAME, AppMode), deps: [AppNameToken, AppMode])
   ]);
 }
-
-AppMode initAppMode() =>
-    window.location.host.contains('localhost') ? AppMode.Develop : AppMode.Production;
