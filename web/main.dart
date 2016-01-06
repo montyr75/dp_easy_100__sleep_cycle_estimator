@@ -15,8 +15,10 @@ import 'package:logging/logging.dart';
 
 const String APP_NAME = "sleep_cycle_estimator";
 
-AppMode appMode = window.location.host.contains('localhost') ? AppMode.Develop : AppMode.Production;
-OpaqueToken AppNameToken = new OpaqueToken("AppNameToken");
+final AppMode appMode =
+  window.location.host.contains('localhost') ? AppMode.Develop : AppMode.Production;
+
+final OpaqueToken AppNameToken = new OpaqueToken("AppNameToken");
 
 main() async {
   await initPolymer();
