@@ -1,15 +1,11 @@
-library sleep_cycle_estimator.lib.views.main_app;
-
 import 'package:angular2/angular2.dart';
-
+import 'package:logging/logging.dart';
+import 'package:intl/intl.dart';
 import 'package:polymer_elements/iron_flex_layout/classes/iron_flex_layout.dart';
 import 'package:polymer_elements/paper_material.dart';
 import 'package:polymer_elements/paper_input.dart';
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
-
-import 'package:logging/logging.dart';
-import 'package:intl/intl.dart';
 
 import '../../directives/two_way_value.dart';
 
@@ -41,7 +37,7 @@ class MainApp {
     DateTime alarmTime;
 
     try {
-      alarmTime = DateTime.parse("2015-01-01 ${value}");
+      alarmTime = DateTime.parse("2016-01-01 ${value}");
     }
     catch (e) {
       bedtime1 = bedtime2 = "";

@@ -1,5 +1,3 @@
-library sleep_cycle_estimator.web.main;
-
 import 'dart:html';
 
 import 'package:polymer_elements/iron_flex_layout/classes/iron_flex_layout.dart';
