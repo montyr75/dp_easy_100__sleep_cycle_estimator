@@ -12,19 +12,14 @@ import 'package:sleep_cycle_estimator/services/logger.dart';
 import 'package:logging/logging.dart';
 
 const String APP_NAME = "sleep_cycle_estimator";
+final bool debugMode = window.location.host.contains('localhost');
 
-final AppMode appMode =
-  window.location.host.contains('localhost') ? AppMode.Develop : AppMode.Production;
-
-final OpaqueToken AppNameToken = new OpaqueToken("AppNameToken");
+final Logger _log = initLog(APP_NAME, debugMode);
 
 main() async {
   await initPolymer();
 
   bootstrap(MainApp, [
-    provide(AppNameToken, useValue: APP_NAME),
-    provide(AppMode, useValue: appMode),
-    provide(Logger, useFactory: (String name, AppMode mode) =>
-        initLog(name, mode), deps: [AppNameToken, AppMode])
+    provide(Logger, useValue: _log)
   ]);
 }
