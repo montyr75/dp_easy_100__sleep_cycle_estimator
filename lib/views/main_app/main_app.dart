@@ -7,13 +7,10 @@ import 'package:polymer_elements/paper_input.dart';
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
 
-import '../../directives/two_way_value.dart';
-
 @Component(selector: 'main-app',
     encapsulation: ViewEncapsulation.Native,
     templateUrl: 'main_app.html',
-    styleUrls: const ["md_table.css"],
-    directives: const [TwoWayValueDirective]
+    styleUrls: const ["md_table.css"]
 )
 class MainApp {
   final Logger log;
